@@ -1,0 +1,11 @@
+@font-face {
+    font-family: brokenConsole;
+    src: url(../res/fonts/Broken\ Console\ Regular.otf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: brokenConsole;
+    src: url(../res/fonts/Broken\ Console\ Bold.otf);
+    font-weight: bold;
+}

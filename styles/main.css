@@ -1,0 +1,414 @@
+@import "fonts.css";
+
+:root {
+    --COLOR_GREEN_DARK: #1c2d1c;
+    --COLOR_RED_DARK: #2d1c1c;
+    --COLOR_ORANGE_LIGHT: #ff9f32;
+    --COLOR_ORANGE: #fd8433;
+    --COLOR_BLUE_LIGHT: #1bc1bf;
+    --COLOR_WHITE: #ccc;
+    --COLOR_PURPLE: #7f0f91;
+    --COLOR_BLACK: #1e1e1e;
+    --COLOR_BLACK_PURE: #0c0c0e;
+}
+
+body {
+    background-color: var(--COLOR_BLACK);
+    font-family: brokenConsole;
+    color: var(--COLOR_ORANGE);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+/* Most buttons in this game are actually images. If there are exceptions, they will be properly put */
+img {
+    cursor: pointer;
+}
+
+.theme {
+    width: 10%;
+    height: 100px;
+}
+
+.logo {
+    font-weight: bold;
+    background: linear-gradient(to bottom, var(--COLOR_ORANGE_LIGHT) 20%, var(--COLOR_PURPLE) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(3px 3px 0px var(--COLOR_BLUE_LIGHT));
+    font-size: 3em;
+    text-align: center;
+    line-height: 100px;
+    user-select: none;
+	margin-left: 10%;
+    width: auto;
+    height: 100px;
+    flex-grow: 2;
+}
+/**************************************************/
+/* STATS RELATED */
+.stats {
+    width: 10%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#statsButton {
+    margin: auto;
+}
+
+#rankingButton {
+    margin: auto;
+}
+
+.tableBorder {
+    border: 1px solid var(--COLOR_ORANGE);
+    border-collapse: collapse;
+    padding:14px;
+}
+
+.topLeftButtons {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    position:absolute;
+    justify-content: flex-start;
+}
+
+.statsDiv {
+    z-index: 2;
+    background-color: var(--COLOR_BLACK_PURE);
+    border-right: 5px solid var(--COLOR_BLACK_PURE);
+    border-left: 25px solid var(--COLOR_BLACK_PURE);
+    border-bottom: 25px solid var(--COLOR_BLACK_PURE);
+    border-top: 5px solid var(--COLOR_BLACK_PURE);
+    border-radius: 5px;
+    display: none;
+    position: fixed;
+    width: 26%;
+}
+
+.statsContent {
+    font-weight: bold;
+}
+
+/* END OF STATS RELATED */
+/**************************************************/
+
+/**************************************************/
+/* LOGIN RELATED */
+.login {
+    width: 10%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#loginButton {
+    margin: auto;
+}
+
+.loginStyle {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    padding-top: 100px;
+    padding-left: 80%;
+}
+
+.login-content {
+    font-size: 16px;
+    text-transform: capitalize;
+    background-color: var(--COLOR_BLACK_PURE); 
+    border-right: 25px solid var(--COLOR_BLACK_PURE);
+    border-left: 25px solid var(--COLOR_BLACK_PURE);
+    border-bottom: 25px solid var(--COLOR_BLACK_PURE);
+    border-top: 5px solid var(--COLOR_BLACK_PURE);
+    border-radius: 5px;
+    width: 80%;
+}
+
+#closeRulesScript {
+    left: 98.5%;
+    top: 12px;
+}
+
+#closeRankingScript {
+    left: 90%;
+    top: 5px;
+}
+
+#closeStatsScript {
+    left: 90%;
+    top: 5px;
+}
+
+#closeLoginScript {
+    left: 52%;
+    top: 0px;
+}
+
+.closeWindow {
+    position: relative;
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--COLOR_WHITE);
+}
+
+.closeWindow:hover, .closeWindow:focus {
+    color: red;
+    cursor: pointer;
+}
+
+#loginName {
+    display: none;
+    text-align: center;
+    margin: auto;
+}
+
+#logoutButton {
+    display: none;
+    margin: auto;
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+  
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+} 
+
+/* END OF LOGIN RELATED */
+/**************************************************/
+
+
+/**************************************************/
+/* SETTINGS RELATED */
+.settings {
+    width: 86%;
+    margin: auto;
+    padding-top: 7%;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings .settingsText {
+    margin-right: 10px;
+    font-size: 16px;
+    line-height: 40px;
+    text-transform: capitalize;
+}
+
+.settingsContainer {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+}
+
+#playFirstToggle {
+    height:max-content;
+    width:max-content;
+}
+
+.square {
+    height: 50px;
+    width: 290px;
+    background-color: var(--COLOR_BLACK);
+    z-index: 2;
+    opacity: 50%;
+    position: absolute;
+    display: none;
+    cursor: not-allowed;
+}
+
+.gameMode .modeText {
+    padding-top: 3%;
+    line-height: 23px;
+}
+
+.gameMode {
+    width: 25%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 25px;
+    vertical-align: middle;
+    text-transform: capitalize;
+}
+
+.playFirstText {
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    vertical-align: middle;
+    text-transform: capitalize;
+}
+
+
+.difficultyText {
+    padding-top: 1%;
+}
+
+/* END OF SETTINGS RELATED */
+/**************************************************/
+
+
+/**************************************************/
+/* START RELATED */
+.start {
+    width: 70%;
+    margin: auto;
+    padding-top: 3%;
+}
+
+.startButton {
+    text-align: center;
+}
+
+/* END OF START RELATED */
+/**************************************************/
+
+
+/**************************************************/
+/* INSTRUCTIONS RELATED */
+
+.instructions {
+    width: 70%;
+    margin: auto;
+    padding-top: 1%;
+}
+
+.rules {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 10%;
+}
+
+.rules-content {
+    font-weight: bold;
+    background-color: var(--COLOR_BLACK_PURE);
+    padding-left: 15px;
+    margin: auto;
+    border-left: 20px solid var(--COLOR_BLACK_PURE);
+    border-right: 20px solid var(--COLOR_BLACK_PURE);
+    border-top: 0px solid var(--COLOR_BLACK_PURE);
+    border-bottom: 20px solid var(--COLOR_BLACK_PURE);
+    border-radius: 5px;
+    width: 80%;
+}
+
+/* END OF INSTRUCTIONS RELATED */
+/**************************************************/
+
+
+/**************************************************/
+/* GAME RELATED */
+
+.game {
+    width: 70%;
+    margin: auto;
+    border-style: solid;
+    height: 100%;
+    background-color: var(--COLOR_GREEN_DARK);
+    display: none;
+}
+
+.game .board {
+    margin: auto; 
+}
+
+.game .board .nimColumn {
+    width: 64px;
+    vertical-align: bottom;
+}
+
+.surrender {
+    display: none;
+    width: 70%;
+    margin: auto;
+    padding-top: 1%;
+}
+
+/* END OF GAME RELATED */
+/**************************************************/
+
+/**************************************************/
+/* END GAME RELATED */
+
+#endGameMessage {
+    text-align: center;
+    font-size: 35px;
+    padding-top:10px
+}
+
+#endGameObjects {
+    display: none;
+}
+
+#queueObjects {
+    display: none;
+}
+
+#cancelButton {
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding-top:14px;
+    padding-bottom:14px;
+}
+
+#queueMessage {
+    text-align: center;
+    font-size: 24px;
+    padding-top:10px
+}
+
+.endGameButtonsDiv {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.endGameButton {
+    padding: 20px;
+}
+
+/* END OF END GAME RELATED */
+/**************************************************/
