@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="EN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nim</title>
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="icon" href="favicon.ico">
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <!-- For proper div spacing - may be used for menus and related -->
+            <table class="topLeftButtons">
+                <tr>
+                    <td>
+                        <div class="stats">
+                            <!-- Button that opens the stats form -->
+                            <img id="statsButton" src="res/img/Stats_Button_Normal.png" alt="Stats Button">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ranking">
+                            <!-- Button that opens the stats form -->
+                            <img id="rankingButton" src="res/img/Ranking_Button_Normal.png" alt="Ranking Button">
+                        </div>
+                    </td>
+                </tr>    
+                <div class="logo">Nim</div>
+                <div class="login">
+                    <!-- Button that opens the login form -->
+                    <img id="loginButton" src="res/img/Login_Button_Normal.png" alt="Login Button">
+                    <p id="loginName"></p>
+                    <img id="logoutButton" src="res/img/Logout_Button_Normal.png" alt="Logout Button">
+                </div>
+            </table>
+        </header>
+
+        <!-- Stats-->
+        <div id="statsDiv" class="statsDiv animate">
+            <span id="closeStatsScript" class="closeWindow" title="Close Stats">&times;</span>
+            <div class="statsContent">
+                <table>
+                    <tr class="tableBorder">
+                        <td class="tableBorder">Name: </td>
+                        <td class="tableBorder" id="statsName">null</td>
+                    </tr>
+                    <tr class="tableBorder">
+                        <td class="tableBorder">Wins: </td>
+                        <td class="tableBorder" id="statsWins">0</td>
+                    </tr>
+                    <tr class="tableBorder">
+                        <td class="tableBorder">Losses: </td>
+                        <td class="tableBorder" id="statsLosses">0</td>
+                    </tr>
+                    <tr class="tableBorder">
+                        <td class="tableBorder">Win Rate: </td>
+                        <td class="tableBorder" id="statsWinRate">0%</td>
+                    </tr>
+                    <tr class="tableBorder">
+                        <td class="tableBorder">Hardest Difficulty Beaten: </td>
+                        <td class="tableBorder" id="statsHardestDiff">None</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="rankingDiv" class="statsDiv animate">
+            <span id="closeRankingScript" class="closeWindow" title="Close Ranking">&times;</span>
+            <div class="statsContent">
+                <table id="rankingTable">
+                    <tr>
+                        <th class="tableBorder">Nick</th>
+                        <th class="tableBorder">Wins</th>
+                        <th class="tableBorder">Games</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Login -->
+        <div id="loginScript" class="loginStyle">
+            
+            <!-- Login Form -->
+            <form name="loginFormName" class="login-content animate">
+                <div>
+                    <label for="uname"><b>Username</b></label>
+                    <label id="closeLoginScript" class="closeWindow" title="Close Login">&times;</label>
+                    <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+                    <br> <br>
+                    <label for="psw"><b>Password</b></label> <br>
+                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                    <br> <br>
+                    <button type="button" id="loginSubmit" onclick="loginSubmitted()">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                    <br> <br>
+                    <div>
+                        <button type="button" id="cancelLoginScript" class="cancelLoginStyle">Cancel</button>
+                        <br> <br>
+                        <span class="psw"><a href="https://www.cyclonis.com/tips-ensure-you-do-not-forget-passwords/" style="color: red">Forgot password?</a></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="settings" id="settings">
+            <div class="gameMode">
+                <label class="settingsText modeText">Opponent:</label>
+                <img src="res/img/PC_On.png" id="pcButton" alt="PC Button">
+                <img src="res/img/Human_Off.png" id="humanButton" alt="Human Button">
+            </div>
+
+            <div class="settingsContainer">
+                <label class="settingsText">You play first</label>
+                <img src="res/img/Toggle_On.png" id="playFirstToggle" alt="Play First Toggle">
+            </div>
+
+            <div class="settingsContainer" id="difficultyDiv">
+                <label class="settingsText difficultyText">Difficulty</label>
+                <input type="range" id="difficulty" class="difficultySlider" min="1" max="5" value="3" autocomplete="off" oninput="this.nextElementSibling.value = this.value">
+                <output class="settingsText">3</output>
+                <div class="square"></div>
+            </div>
+
+            <div class="settingsContainer">
+                <label class="settingsText">Board Size</label>
+                <input type="range" id="boardSize" name="boardSize" min="3" max="9" value="5" autocomplete="off" oninput="this.nextElementSibling.value = this.value">
+                <output class="settingsText">5</output>
+            </div>
+        </div>
+        <div class="start">
+            <div class="startButton">
+                <img src="res/img/Start_Button_Normal.png" id="startButton" alt="Start Button">
+            </div>
+        </div>
+
+        <div class="game" id="game">
+            <div id="endGameObjects">
+                <div id="endGameMessage" >
+                    End Game Message
+                </div> 
+                <span class="endGameButtonsDiv">
+                    <img src="res/img/Try_Again_Button_Normal.png" id="tryAgainButton" alt="Try Again Button" class="endGameButton">
+                    <img src="res/img/Back_Button_Normal.png" id="backButton" alt="Back Button" class="endGameButton">
+                </span>
+            </div>
+            <div id="queueObjects">
+                <div id="queueMessage" >
+                    Waiting for players...
+                </div> 
+                <span>
+                    <img src="res/img/Back_Button_Normal.png" id="cancelButton" alt="Cancel Button">
+                </span>
+            </div>
+            <table class="board">
+                <tbody id="nim">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="instructions">
+            <div class="startButton">
+                <img src="res/img/Rules_Button_Normal.png" id="rulesButton" alt="Rules Button">
+            </div>
+        </div>
+
+        <!-- Rules-->
+        <div id="rules" class="rules">
+            <div class="rules-content animate">
+                <span id="closeRulesScript" class="closeWindow" title="Close Rules">&times;</span>
+                <p>Nim is a simple tactical game for two players. Each player removes one or more balls from each column and the objective is to be the one that removes the <b>last</b> ball on the board.</p>
+                <p>When you remove a ball in the middle of a column, every ball above it is also removed. To remove balls, simply click on them. You will see exactly which balls will be removed as they will shake.</p>
+                <p>Difficulty</p>
+                <ol>
+                    <li>AI just plays random moves</li>
+                    <li>Easy mode, if you are having some trouble</li>
+                    <li>Normal mode, recommended for beginners</li>
+                    <li>So, you want to do this the hard way...</li>
+                    <li>You cannot win</li>
+                </ol>
+                <p>Board Size: Choose the number of columns in the game. The balls are automatically generated</p>
+            </div>
+        </div>
+
+        <div class="surrender" id="surrender">
+            <div class="startButton">
+                <img src="res/img/Surrender_Button_Normal.png" id="surrenderButton" alt="Surrender Button">
+            </div>
+        </div>
+    </body>
+</html>
