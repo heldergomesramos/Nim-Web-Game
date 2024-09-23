@@ -28,7 +28,7 @@ Nim is a mathematical strategy game where two players take turns removing pieces
 
 ## Authors
 
-- **Helder Ramos** – [GitHub](https://github.com/heldergomesramos)
+- **Hélder Ramos** – [GitHub](https://github.com/heldergomesramos)
 - **Duarte Monteiro** – [GitHub](https://github.com/duartefsmonteiro)
 
 ## License
